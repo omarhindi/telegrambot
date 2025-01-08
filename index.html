@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-image: url('pattern.png'); /* Placeholder for the top-left design */
+      background-repeat: no-repeat;
+      background-position: top left;
+      background-size: 200px;
+    }
+    .container {
+      max-width: 800px;
+      padding: 20px;
+      text-align: center;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin-top: 50px;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: #005f73; /* Teal color from the design */
+    }
+    .video {
+      width: 100%;
+      margin: 20px 0;
+      border: 4px solid #005f73; /* Teal border for the video */
+      border-radius: 10px;
+    }
+    .description {
+      font-size: 1rem;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .link-item {
+      text-align: center;
+    }
+    .links a {
+      display: block;
+      width: 180px; /* Rectangle width */
+      height: 120px; /* Rectangle height */
+      background-size: cover;
+      background-position: center;
+      text-decoration: none;
+      border: 3px solid #ff8c42; /* Orange border */
+      border-radius: 10px; /* Slightly rounded corners */
+      overflow: hidden;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+    .links a:hover {
+      transform: scale(1.05);
+      border-color: #005f73; /* Change to teal on hover */
+    }
+    .link-tag {
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: #005f73; /* Teal color */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Video Title</h1>
+    <video id="player" class="video" controls>
+      <source src="video.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <p class="description">This is a description for the video. It gives more details about the content.</p>
+    <div class="links">
+        <div class="link-item">
+          <a href="https://www.youtube.com/watch?v=PaUiY53kLGg" target="_blank">
+            <img src="https://img.youtube.com/vi/PaUiY53kLGg/0.jpg" alt="Video Thumbnail" style="width: 100%; height: 100%;">
+          </a>
+          <span class="link-tag">Link 1</span>
+        </div>
+        <div class="link-item">
+            <a href="https://www.youtube.com/watch?v=J33HQ_cKCGg" target="_blank">
+                <img src="https://img.youtube.com/vi/J33HQ_cKCGg/0.jpg" alt="Video Thumbnail" style="width: 100%; height: 100%;">
+            </a>
+            <span class="link-tag">Link 2</span>
+        </div>
+        <div class="link-item">
+            <a href="https://www.youtube.com/watch?v=73qd45WDO7Y" target="_blank">
+                <img src="https://img.youtube.com/vi/73qd45WDO7Y/0.jpg" alt="Video Thumbnail" style="width: 100%; height: 100%;">
+            </a>
+          <span class="link-tag">Link 3</span>
+        </div>
+        <div class="link-item">
+            <a href="https://www.youtube.com/watch?v=mxwukck362Y" target="_blank">
+                <img src="https://img.youtube.com/vi/mxwukck362Y/0.jpg" alt="Video Thumbnail" style="width: 100%; height: 100%;">
+            </a>
+          <span class="link-tag">Link 4</span>
+        </div>
+      </div>
+  </div>
+  
+  <script>
+    // 2. This code loads the IFrame Player API code asynchronously.
+    var tag = document.createElement('script');
+
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    // 3. This function creates an <iframe> (and YouTube player)
+    //    after the API code downloads.
+    var player;
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('player', {
+        height: '390',
+        width: '640',
+        videoId: 'PaUiY53kLGg',
+        playerVars: {
+          'playsinline': 1
+        }
+      });
+    }
+
+  </script>
+</body>
+</html>
